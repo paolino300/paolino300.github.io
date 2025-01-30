@@ -16,25 +16,79 @@
     <div class="menu">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="news.asp">News</a></li>
-            <li><a href="contact.asp">Contact</a></li>
-            <li><a href="about.asp">About</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about_us">About</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
     </div>
     <div class="main">
 
+        <div class="spacing"></div>
         <section>
-            News
+            <p class="reveal-type" id="news">News:</p>
         </section>
         <section>
-            About us
+            <p class="reveal-type" id="about_us">About us:</p>
         </section>
         <section>
-            Gallery
+            <p class="reveal-type" id="gallery">Gallery:</p>
+            <a href="gallery.html">
+                <img src="images/inspection.png"/>
+               </a>
         </section>
         <section>
-            Contact
+            <p class="reveal-type" id="contact">Contact:</p>
+            <p class="reveal-type">Discord: lollox3001</p>
+            <p class="reveal-type">Roblox: paolino300</p>
         </section>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script> 
+
+    <script>
+
+        gsap.registerPlugin(ScrollTrigger)
+
+        const splitTypes = document.querySelectorAll('.reveal-type')
+
+        splitTypes.forEach((char, i) => {
+
+            const text = new SplitType(char, { types: 'chars,words'})
+
+            gsap.from(text.chars, {
+                scrollTrigger: {
+                    trigger: char,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: false,
+                    markers: false,
+                    toggleActions: 'play play reverse reverse'
+                },
+                scaleY: 0,
+                y: -20,
+                transformOrigin: 'top',
+                stagger: 0.02,
+                duration: 0.3
+            })
+
+        })
+
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+            console.log(e)
+        })
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+    </script>
 </body>
 </html>
