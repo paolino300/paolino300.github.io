@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+    background-color: rgb(44, 42, 42);
+}
+
+header{
+    background-image: url(images/header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    height: 200px;
+    margin-top: 25px;
+}
+
+header H1{
+    margin-top: 0;
+    font-size: 64px;
+    font-family: cursive ;
+    text-shadow: Grey 5px 0 10px;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+  
+li{
+    float: left;
+}
+  
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+  /* Change the link color to #111 (black) on hover */
+li a:hover{
+    background-color: #111;
+}
+
+section{
+height: 100vh;
+padding: 0 clamp(4rem, 12vm, 20rem);
+display: grid;
+place-content: center;
+    p{
+        font-size: clamp(2rem, 5vw, 8rem);
+    }
+&:nth-of-type(1){
+    background-color: rgb(50, 50, 50);
+}
+&:nth-of-type(2){
+    background-color: rgb(60,60,60);
+}
+&:nth-of-type(3){
+    background-color: rgb(70,70,70);
+}
+&:nth-of-type(4){
+    background-color: rgb(80,80,80);
+}  
+}
